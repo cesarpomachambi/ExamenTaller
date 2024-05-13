@@ -37,7 +37,7 @@ Endpoints.post('/laptops', async (req, res) => {
 });
 
 // Actualizar una laptop por su ID
-Endpoints.patch('/laptops/:id', async (req, res) => {
+Endpoints.put('/laptops/:id', async (req, res) => {
     try {
         const laptop = await LaptopModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!laptop) {
@@ -84,4 +84,39 @@ Endpoints.get('/sistema_operativo/:sistema_operativo', async (req, res) => {
         res.status(500).json({ error: 'Error al obtener laptops por sistema operativo', message: error.message });
     }
 });
+// Consultar por rango de precios 
+Endpoints.get('/laptops/precio/:min/:max', async (req, res) => {
+    const { min, max } = req.params;
+    try {
+        const laptops = await LaptopModel.find({ precio: { $gte: min, $lte: max } });
+        res.json(laptops);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener laptops por rango de precios', message: error.message });
+    }
+});
+
+//Consultar laptops con un sistema operativo determinado y precio menor que un valor dado
+Endpoints.get('/laptops/sistema_operativo/:sistema_operativo/:maxPrice', async (req, res) => {
+    const { sistema_operativo, maxPrice } = req.params;
+    try {
+        const laptops = await LaptopModel.find({ 
+            sistema_operativo: sistema_operativo,
+            precio: { $lt: maxPrice } 
+        });
+        res.json(laptops);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener laptops por sistema operativo y precio', message: error.message });
+    }
+});
+
+
+Endpoints.get('/laptops/ordenar/precio_asc', async (req, res) => {
+    try {
+        const laptops = await LaptopModel.find().sort({ precio: 1 });
+        res.json(laptops);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al obtener laptops ordenadas por precio ascendente', message: error.message });
+    }
+});
+
 module.exports = Endpoints;
