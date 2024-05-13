@@ -2,7 +2,8 @@
 Proyecto de Gestión de Inventario de Laptops
 
 Descripción
-Este proyecto consiste en la gestión de un inventario de laptops. Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los registros de laptops en una base de datos MongoDB.
+Este proyecto consiste en la gestión de un inventario de laptops, el objetivo principal es utliizar todos los conocimientos adquiridos en clase, para gestionar una base de datos para un inventario de Laptops haciendo diferentes consultas.
+Permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre los registros de laptops en una base de datos MongoDB.
 
 Funcionalidades
 Crear una nueva laptop con detalles como marca, modelo, especificaciones de hardware, precio y cantidad disponible.
