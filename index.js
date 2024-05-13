@@ -14,7 +14,7 @@ app.use(express.json());
 //CONEXION CON MONGODB\
 mongoose.connect(MONGO_URI)
 .then(() => {
-        console.log('Conexion realizada con EXITO');
+    console.log('\x1b[1m\x1b[31m*********Conexion realizada con******EXITO!!!!!*********\x1b[0m');
         app.listen(PORT, () => {console.log("Servidor express corriendo en el puerto: "+PORT)})
     }
 ).catch( error => console.log('error de conexion', error));
