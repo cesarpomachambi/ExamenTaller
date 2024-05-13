@@ -19,5 +19,5 @@ mongoose.connect(MONGO_URI)
     }
 ).catch( error => console.log('error de conexion', error));
 
-//utilizar las rutas de recetas
+//utilizar los endpoints 
 app.use('/inventarios', EndpoinstsLaptops);

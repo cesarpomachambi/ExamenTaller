@@ -109,7 +109,7 @@ Endpoints.get('/laptops/sistema_operativo/:sistema_operativo/:maxPrice', async (
     }
 });
 
-
+// Ordenar del menor al mayor precio
 Endpoints.get('/laptops/ordenar/precio_asc', async (req, res) => {
     try {
         const laptops = await LaptopModel.find().sort({ precio: 1 });
