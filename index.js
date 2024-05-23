@@ -19,5 +19,9 @@ mongoose.connect(MONGO_URI)
     }
 ).catch( error => console.log('error de conexion', error));
 
+<<<<<<< Updated upstream
 //utilizar los endpoints 
+=======
+//utilizar los Endpoints 
+>>>>>>> Stashed changes
 app.use('/inventarios', EndpoinstsLaptops);
